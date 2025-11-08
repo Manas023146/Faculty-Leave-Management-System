@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <div class="brand"><span class="emoji">🏫</span> <span>Faculty Leave Management System</span></div>
+  <div class="row">
+    <button id="themeToggle" class="toggle"><span class="sun">Light</span><span class="moon">Dark</span></button>
+    <button id="logoutBtn" class="btn ghost">Logout</button>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="small" id="today"></div>
+
+  <h2 class="section-title mt-4"><span>Admin Overview</span></h2>
+  <section class="statbar">
+    <div class="stat"><div class="small">Total Requests</div><div class="kpi" id="stTotal">0</div></div>
+    <div class="stat"><div class="small">Approved</div><div class="kpi" id="stApproved">0</div></div>
+    <div class="stat"><div class="small">Pending/Not Approved</div><div class="kpi" id="stPending">0</div></div>
+    <div class="stat"><div class="small">Today</div><div class="kpi" id="stToday">0</div></div>
+  </section>
+
+  <h2 class="section-title mt-6"><span>All Requests</span></h2>
+  <section class="card">
+    <div class="actions">
+      <input id="filterDate" type="date" class="input" style="max-width:200px">
+      <input id="search" placeholder="Search by name / token / type / status" class="input search">
+      <button id="csvBtn" class="btn ghost">Export CSV</button>
+      <button id="pdfBtn" class="btn">Download PDF</button>
+      <button id="printBtn" class="btn ghost">Print View</button>
+    </div>
+
+    <div id="tableSkeleton" class="mt-3">
+      <div class="skel" style="width:100%;height:18px"></div>
+      <div class="skel" style="width:100%;height:18px;margin-top:8px"></div>
+      <div class="skel" style="width:100%;height:18px;margin-top:8px"></div>
+    </div>
+
+    <div style="overflow:auto; display:none" id="tableWrap" class="mt-3">
+      <table class="table" id="adminTable">
+        <thead><tr><th>Token</th><th>Faculty</th><th>Type</th><th>From</th><th>To</th><th>Status</th><th data-action-col>Action</th></tr></thead>
+        <tbody></tbody>
+        <tfoot><tr><td colspan="7" id="resultCount"></td></tr></tfoot>
+      </table>
+      <div class="pagination" id="pager"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Developed by Manas Bhatt <span class="sep">•</span> and Luvkush Garg
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,370 @@
+/* =========================================================
+   ✅ LIGHT MODE (High Contrast + Subtle Teal)
+   ========================================================= */
+:root {
+  --bg: #dbdada;
+  --surface: #ffffffee;
+  --ink: #0e0e0e;
+  --ink-muted: #3e4349;
+  --border: #c6c9d0;
+  --soft: #eceef2;
+  --shadow: 0 12px 30px rgba(0, 0, 0, .06);
+
+  /* Subtle corporate teal */
+  --accent: #179d9a;
+  --accent2: #0d7371;
+}
+
+/* =========================================================
+   ✅ DARK MODE (High Contrast + Teal Glow)
+   ========================================================= */
+:root.dark {
+  --bg: #03195c;
+  --surface: #191c21dd;
+  --ink: #f5f5f5;
+  --ink-muted: #d3d6db;
+  --border: #35383f;
+  --soft: #24272d;
+  --shadow: 0 20px 50px rgba(0, 0, 0, .35);
+
+  --accent: #03615e;
+  --accent2: #fdf9f9;
+}
+
+/* =========================================================
+   ✅ RESET & BASE
+   ========================================================= */
+* { box-sizing: border-box }
+
+html, body { height: 100% }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================================
+   ✅ HEADER
+   ========================================================= */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: saturate(160%) blur(10px);
+  -webkit-backdrop-filter: saturate(160%) blur(10px);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.brand .emoji { font-size: 20px }
+
+/* =========================================================
+   ✅ LAYOUT
+   ========================================================= */
+.container {
+  max-width: 1180px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+  backdrop-filter: saturate(140%) blur(8px);
+  animation: fadeUp .5s ease both;
+}
+
+.equal {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+}
+
+@media(min-width:900px) {
+  .equal {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.center-page {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================================
+   ✅ INPUTS
+   ========================================================= */
+label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.input, select, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--soft);
+  color: var(--ink);
+  transition: border-color .15s ease;
+}
+
+.input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent2);
+}
+
+::placeholder {
+  color: var(--ink-muted);
+  opacity: .75;
+}
+
+/* =========================================================
+   ✅ BUTTONS
+   ========================================================= */
+.btn {
+  border: 1px solid var(--accent2);
+  background: var(--accent);
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .08s ease, box-shadow .2s ease;
+}
+
+.btn:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.2) }
+.btn:active { transform: scale(.97) }
+
+.btn.ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--accent);
+}
+
+:root.dark .btn.ghost {
+  color: #ffffff;
+  border-color: var(--accent2);
+}
+
+/* =========================================================
+   ✅ THEME TOGGLE
+   ========================================================= */
+.toggle {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--ink);
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.toggle .sun { display: inline }
+.toggle .moon { display: none }
+
+:root.dark .toggle .sun { display: none }
+:root.dark .toggle .moon { display: inline }
+
+/* =========================================================
+   ✅ TABLES
+   ========================================================= */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table thead th {
+  text-align: left;
+  padding: 10px;
+  color: var(--ink);
+  border-bottom: 1px solid var(--border);
+}
+
+.table tbody td {
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* =========================================================
+   ✅ AVATARS + MENU
+   ========================================================= */
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--soft);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.profile { position: relative }
+
+.menu {
+  position: absolute;
+  right: 0;
+  top: 52px;
+  width: 200px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: none;
+  padding: 8px;
+  box-shadow: var(--shadow);
+}
+
+.menu a {
+  padding: 10px;
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.menu a:hover {
+  background: var(--soft);
+}
+
+/* =========================================================
+   ✅ KPI + STATS
+   ========================================================= */
+.grid3 {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+
+@media(min-width:900px) {
+  .grid3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+/* =========================================================
+   ✅ SEARCH + PAGINATION
+   ========================================================= */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.search { flex: 1 1 260px }
+
+.pagination {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.page-btn {
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.page-btn.active {
+  background: black;
+  color: #fff;
+}
+
+/* =========================================================
+   ✅ SKELETONS
+   ========================================================= */
+.skel {
+  height: 16px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--soft) 25%, rgba(0,0,0,0.08) 37%, var(--soft) 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% 0 }
+  100% { background-position: 0 0 }
+}
+
+/* =========================================================
+   ✅ FOOTER (Black Shade)
+   ========================================================= */
+footer {
+  margin: 30px auto;
+  text-align: center;
+  background: #000000d0;
+  color: #fff;
+  padding: 12px 0;
+  border-radius: 10px;
+  font-size: 12px;
+  width: 95%;
+}
+
+footer .sep {
+  opacity: .6;
+  margin: 0 .5rem;
+}
+
+/* =========================================================
+   ✅ ANIMATIONS
+   ========================================================= */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px) }
+  to { opacity: 1; transform: none }
+}
+
+.fade { animation: fadeUp .6s ease both }
+
+/* =========================================================
+   ✅ UTILITIES
+   ========================================================= */
+.mt-2 { margin-top: .5rem }
+.mt-3 { margin-top: .75rem }
+.mt-4 { margin-top: 1rem }
+.mt-6 { margin-top: 1.5rem }
+
+.center { text-align: center }
+
+.equal-height {
+  display: grid;
+  grid-template-rows: 1fr;
+}
